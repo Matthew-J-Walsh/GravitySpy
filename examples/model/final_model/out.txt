@@ -1,0 +1,3 @@
+pickeleddata/trainingset.pkl
+
+ * Test Accuracy (last): 0.8125% 
