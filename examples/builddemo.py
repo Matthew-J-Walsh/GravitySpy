@@ -23,16 +23,16 @@ spectrogramsfolder = majorfolder + "Spectrogram/"
 visualfolder = majorfolder + "VisualRepresentation/"
 trainingfolder = majorfolder + "TrainingSet/"
 
-#flow = 30.0
-#delta_f = 1.0/16
-#flen = int(2048 / delta_f) + 1
-#psd = pycbc.psd.aLIGOZeroDetHighPower(flen, delta_f, flow)
-#delta_t = 1.0/4096
-#tsamples = int(32 / delta_t)
-#ts = pycbc.noise.noise_from_psd(tsamples, delta_t, psd, seed=1980)
-#noise = TimeSeries.from_pycbc(ts)
+flow = 30.0
+delta_f = 1.0/16
+flen = int(8192 / delta_f) + 1
+psd = pycbc.psd.aLIGOZeroDetHighPower(flen, delta_f, flow)
+delta_t = 1.0/16384
+tsamples = int(32 / delta_t)
+ts = pycbc.noise.noise_from_psd(tsamples, delta_t, psd, seed=1980)
+noise = TimeSeries.from_pycbc(ts)
 
-noise = 1e-21*TimeSeries(random.normal(scale=.1, size=16384*100), sample_rate=16384)
+#noise = 1e-21*TimeSeries(random.normal(scale=.1, size=16384*100), sample_rate=16384)
 
 #draws a visual representation of specified demo
 def drawdemo(m1, m2, d, s1x, s1y, s1z, s2x, s2y, s2z, ecc, inc, visualreploc):
